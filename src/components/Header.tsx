@@ -6,8 +6,8 @@ import useAuth from '../utils/useAuth';
 
 const HeaderWrapper = styled.header`
   align-items: center;
-  background-color: #1C6758;
-  color: #fefefe;
+  background-color: #2a8572;
+  color: #eef2e6;
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.5rem;
@@ -43,7 +43,7 @@ const NavWrapper = styled.nav`
       color: lightgrey;
     }
     &.active {
-      color: #009900;
+      color: #c6bbd5;
       font-style: italic;
     }
   }

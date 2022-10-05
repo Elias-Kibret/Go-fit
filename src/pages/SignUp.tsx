@@ -36,7 +36,7 @@ const Wrapper = styled.div`
   section {
     width: 50%;
     min-width: 400px;
-    background-color: rgba(2, 110, 199, 0.3);
+    background-color: rgba(13, 132, 230, 0.3);
     overflow: hidden;
     .image {
       width: 350px;
