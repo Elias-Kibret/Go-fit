@@ -14,6 +14,7 @@ const HeaderWrapper = styled.header`
   color: #101010;
   h1 {
     margin: 1rem 0;
+    text-shadow: 0px 2px 0 #011722, 1px 5px 10px #aba8a8;
   }
   a {
     color: #161515;

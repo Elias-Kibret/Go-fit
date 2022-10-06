@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import GlobalStyle from '../utils/globalStyle';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
+// import Navbar from '../components/Navbar';
 
 const Wrapper = styled.div`
   display: flex;
@@ -37,7 +37,7 @@ function Layout() {
       <GlobalStyle />
       <Wrapper>
         <Header />
-        <Navbar />
+        {/* <Navbar /> */}
         <Outlet />
         <Footer />
       </Wrapper>

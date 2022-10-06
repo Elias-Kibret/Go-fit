@@ -33,14 +33,31 @@ const Wrapper = styled.div`
   border-radius: 30px;
   overflow: hidden;
   flex-wrap: wrap-reverse;
+  @media (min-width: 700px) {
+    section {
+      overflow-x: hidden;
+      .image {
+        width: 350px !important;
+        height: 350px !important;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      h2 {
+        font-size: 2rem;
+      }
+    }
+  }
   section {
+    padding: 20px 0px;
     width: 50%;
     min-width: 400px;
     background-color: rgba(13, 132, 230, 0.3);
     overflow: hidden;
     .image {
-      width: 350px;
-      height: 350px;
+      width: 250px;
+      height: 250px;
       margin: auto;
       object-fit: contain;
       border-radius: 50%;
@@ -51,34 +68,36 @@ const Wrapper = styled.div`
       -webkit-box-shadow: -5px 16px 87px -32px rgba(0, 0, 0, 0.42);
       -moz-box-shadow: -5px 16px 87px -32px rgba(0, 0, 0, 0.42);
       img {
-        width: 350px;
-        height: 350px;
+        width: 100%;
+        height: 100%;
         border-radius: 50%;
       }
     }
     h2 {
       text-align: center;
       width: 90%;
-      margin: 45px auto;
-      font-size: 2rem;
+      margin: 10px auto;
+      font-size: 1.5rem;
       color: #c3881c;
       text-transform: uppercase;
-      text-shadow: 0px 3px 0 #78755a, 3px 13px 15px #aba8a8;
+      text-shadow: 0px 3px 0 #78755a, 3px 2px 15px #aba8a8;
     }
   }
   main {
     margin: 10px auto;
     width: 40%;
-
+    overflow-x: hidden !important;
     form {
       display: flex;
-      margin-left: 50px;
       justify-content: center;
       flex-direction: column;
       label {
         display: block;
         margin-bottom: 9px;
         font-weight: 600;
+      }
+      @media (min-width: 700px) {
+        margin-left: 50px;
       }
       .checkbox {
         input {
