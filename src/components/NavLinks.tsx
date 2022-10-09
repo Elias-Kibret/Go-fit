@@ -18,12 +18,15 @@ const Wrapper = styled.div`
       }
     }
     a {
-      color: #fefefe;
-      font-size: 1.25rem;
-      font-weight: 700;
+      color: #fa701a;
+      font-size: 0.9rem;
       text-decoration: none;
+      border: 1px solid #f1833f;
+      padding: 8px 14px;
+      border-radius: 20px;
       &:hover {
-        color: lightgrey;
+        color: white;
+        background-color: #ff8133;
       }
       &.active {
         color: #c6bbd5;

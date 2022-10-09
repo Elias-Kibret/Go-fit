@@ -78,9 +78,8 @@ const Wrapper = styled.div`
       width: 90%;
       margin: 10px auto;
       font-size: 1.5rem;
-      color: #c3881c;
+      color: #ff731d;
       text-transform: uppercase;
-      text-shadow: 0px 3px 0 #78755a, 3px 2px 15px #aba8a8;
     }
   }
   main {

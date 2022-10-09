@@ -10,14 +10,16 @@ const HeaderWrapper = styled.header`
   /* display: flex; */
   justify-content: space-between;
   align-items: center;
-  background-color: #2a8572;
-  color: #101010;
+  color: #ff731d;
+  background-color: rgba(207, 255, 141, 0.4) !important;
+  box-shadow: -1px 9px 59px -21px rgba(0, 0, 0, 0.31);
+  -webkit-box-shadow: -1px 9px 59px -21px rgba(0, 0, 0, 0.31);
+  -moz-box-shadow: -1px 9px 59px -21px rgba(0, 0, 0, 0.31);
   h1 {
     margin: 1rem 0;
-    text-shadow: 0px 2px 0 #011722, 1px 5px 10px #aba8a8;
   }
   a {
-    color: #161515;
+    color: #ff731d;
     text-decoration: none;
   }
   .logo {
@@ -39,7 +41,7 @@ const HeaderWrapper = styled.header`
   }
 `;
 const MobileMenu = styled.div`
-  color: #e6e912;
+  color: #ff731d;
   @media (min-width: 700px) {
     display: none !important;
   }
@@ -60,7 +62,7 @@ function Header() {
             <img src={Logo} alt="Logo" />
           </span>
           <Link to="/">
-            <h1>Physical Exercise</h1>
+            <h1>Go Fit</h1>
           </Link>
         </div>
         <NavWrapper>

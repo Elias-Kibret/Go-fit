@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './App.css';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Exercises from './pages/Exercises';
 import Home from './pages/Home';
@@ -10,7 +11,6 @@ import SignUp from './pages/SignUp';
 import Unauthorized from './pages/Unauthorized';
 import { AuthenticatedUser } from './store/userSlice';
 import useAuth from './utils/useAuth';
-
 interface RouteConfig {
   element: React.ReactNode;
   path: string;
