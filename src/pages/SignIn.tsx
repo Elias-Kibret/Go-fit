@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   overflow-x: hidden;
   display: flex;
   width: 70%;
-  margin: 100px auto;
+  margin: 50px auto;
   flex-direction: column;
   justify-content: space-between;
   p {
@@ -21,14 +21,10 @@ const Wrapper = styled.div`
   }
   @media (min-width: 700px) {
     flex-direction: row;
-    width: 90%;
+    width: 70%;
   }
   color: #2a8572;
   main {
-    @media (min-width: 700px) {
-      width: 60%;
-      margin: auto;
-    }
     h2 {
       color: #0b846a;
       font-size: 2rem;

@@ -51,16 +51,19 @@ const Wrapper = styled.div`
     }
   }
   section {
-    padding: 20px 0px;
+    padding: 60px 0px;
     width: 50%;
     min-width: 400px;
     background-color: rgba(13, 132, 230, 0.2);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     h2 {
       text-align: center;
       width: 90%;
-      margin: 10px auto;
-      font-size: 1.5rem;
+      margin: 2px auto;
+      font-size: 2rem;
       color: #2a8572;
       text-transform: uppercase;
     }
@@ -84,9 +87,13 @@ const Wrapper = styled.div`
     }
   }
   main {
+    padding: 30px 10px;
     margin: 10px auto;
     width: 40%;
     overflow-x: hidden !important;
+    h2 {
+      color: #2a8572;
+    }
     form {
       display: flex;
       justify-content: center;
