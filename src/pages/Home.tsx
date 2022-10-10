@@ -20,12 +20,12 @@ const Wrapper = styled.div`
       text-transform: uppercase;
       font-weight: 800;
       color: #f88740;
-      border-left: 10px solid black;
+      border-left: 10px solid #2a8572;
       padding: 0px 20px;
       font-size: 2.3rem;
     }
     span {
-      color: #413d3d;
+      color: #2a8572;
     }
   }
 `;

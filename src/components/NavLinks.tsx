@@ -18,10 +18,10 @@ const Wrapper = styled.div`
       }
     }
     a {
-      color: #fa701a;
+      color: #e4600d;
       font-size: 0.9rem;
       text-decoration: none;
-      border: 1px solid #f1833f;
+      border: 1px solid #ff8133;
       padding: 8px 14px;
       border-radius: 20px;
       &:hover {
@@ -29,8 +29,9 @@ const Wrapper = styled.div`
         background-color: #ff8133;
       }
       &.active {
-        color: #c6bbd5;
+        color: white;
         font-style: italic;
+        background-color: #ff8133;
       }
     }
   }
