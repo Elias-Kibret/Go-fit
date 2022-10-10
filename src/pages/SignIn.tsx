@@ -25,6 +25,10 @@ const Wrapper = styled.div`
   }
   color: #2a8572;
   main {
+    @media (min-width: 700px) {
+      width: 60%;
+      margin: auto;
+    }
     h2 {
       color: #0b846a;
       font-size: 2rem;
