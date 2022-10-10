@@ -7,17 +7,21 @@ import { setAuthError } from '../store/userSlice';
 import useAuth from '../utils/useAuth';
 import useProfileRedirect from '../utils/useProfileRedirect';
 import Error from '../components/Error';
-
+import physcial_girl from '../assets/images/3P1et-.gif';
 const formDefaults = { email: '', password: '' };
 const Wrapper = styled.div`
   overflow-x: hidden;
   display: flex;
-  width: 80%;
+  width: 70%;
   margin: 100px auto;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  p {
+    font-size: 1rem;
+  }
   @media (min-width: 700px) {
     flex-direction: row;
+    width: 90%;
   }
   color: #2a8572;
   main {
@@ -66,7 +70,14 @@ const Wrapper = styled.div`
     }
   }
 `;
-const ImageWrapper = styled.div``;
+const ImageWrapper = styled.div`
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+`;
 function SignIn() {
   const dispatch = useAppDispatch();
   const { authError } = useAuth();
@@ -128,7 +139,7 @@ function SignIn() {
         </p>
       </main>
       <ImageWrapper>
-        <p>Hello</p>
+        <img src={physcial_girl} alt="physcial_girl" />
       </ImageWrapper>
     </Wrapper>
   );

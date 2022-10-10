@@ -19,7 +19,7 @@ const HeaderWrapper = styled.header`
     margin: 1rem 0;
   }
   a {
-    color: #ff731d;
+    color: #2a8572;
     text-decoration: none;
   }
   .logo {

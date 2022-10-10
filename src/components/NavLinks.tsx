@@ -18,20 +18,21 @@ const Wrapper = styled.div`
       }
     }
     a {
-      color: #e4600d;
+      color: #2a8572;
       font-size: 0.9rem;
       text-decoration: none;
-      border: 1px solid #ff8133;
+      border: 1px solid #2a8572;
       padding: 8px 14px;
       border-radius: 20px;
+      font-weight: 500;
       &:hover {
         color: white;
-        background-color: #ff8133;
+        background-color: #2a8572;
       }
       &.active {
         color: white;
         font-style: italic;
-        background-color: #ff8133;
+        background-color: #2a8572;
       }
     }
   }

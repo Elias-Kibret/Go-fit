@@ -33,6 +33,7 @@ const Wrapper = styled.div`
   border-radius: 30px;
   overflow: hidden;
   flex-wrap: wrap-reverse;
+  margin-top: 100px;
   @media (min-width: 700px) {
     section {
       overflow-x: hidden;
@@ -45,7 +46,7 @@ const Wrapper = styled.div`
         }
       }
       h2 {
-        font-size: 2rem;
+        color: #2a8572;
       }
     }
   }
@@ -55,6 +56,14 @@ const Wrapper = styled.div`
     min-width: 400px;
     background-color: rgba(13, 132, 230, 0.3);
     overflow: hidden;
+    h2 {
+      text-align: center;
+      width: 90%;
+      margin: 10px auto;
+      font-size: 1.5rem;
+      color: #2a8572;
+      text-transform: uppercase;
+    }
     .image {
       width: 250px;
       height: 250px;
@@ -73,14 +82,6 @@ const Wrapper = styled.div`
         border-radius: 50%;
       }
     }
-    h2 {
-      text-align: center;
-      width: 90%;
-      margin: 10px auto;
-      font-size: 1.5rem;
-      color: #ff731d;
-      text-transform: uppercase;
-    }
   }
   main {
     margin: 10px auto;
@@ -92,6 +93,7 @@ const Wrapper = styled.div`
       flex-direction: column;
       label {
         display: block;
+        color: #206c5c;
         margin-bottom: 9px;
         font-weight: 600;
       }
@@ -106,10 +108,17 @@ const Wrapper = styled.div`
         }
       }
       button {
-        border-radius: 8px;
-        border: 1px solid lightblue;
-        background-color: blueviolet;
+        background-color: #2a8572;
+        border: none;
         color: white;
+        font-weight: 700;
+        border-radius: 20px;
+        margin: 20px 0px;
+        border: 1px solid #2a8572;
+        &:hover {
+          background-color: white;
+          color: #2a8572;
+        }
       }
       input {
         display: block;
