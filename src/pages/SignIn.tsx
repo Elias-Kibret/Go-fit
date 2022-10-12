@@ -2,7 +2,7 @@ import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useAppDispatch } from '../utils/reduxHooks';
-import { signIn } from '../utils/firebase';
+import { signIn, signInWithGoogle } from '../utils/firebase';
 import { setAuthError } from '../store/userSlice';
 import useAuth from '../utils/useAuth';
 import useProfileRedirect from '../utils/useProfileRedirect';
@@ -100,7 +100,13 @@ function SignIn() {
     await signIn({ email, password });
     setFormData(formDefaults);
   };
-
+  const handleGoogleSignIn = async () => {
+    try {
+      signInWithGoogle();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Wrapper>
       <main>
@@ -133,6 +139,11 @@ function SignIn() {
             />
           </label>
           <button type="submit">Submit</button>
+          <div>
+            <button type="button" className="login-with-google-btn" onClick={handleGoogleSignIn}>
+              Sign in with Google
+            </button>
+          </div>
         </form>
         <p>
           Need to register? <Link to="/signup">Sign up</Link> instead!

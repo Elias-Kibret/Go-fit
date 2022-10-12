@@ -1,23 +1,14 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useAppDispatch } from '../utils/reduxHooks';
+import useAuth, { useAppDispatch } from '../utils/useAuth';
 import { signUp } from '../utils/firebase';
 import { setAuthError } from '../store/userSlice';
-import useAuth from '../utils/useAuth';
 import useProfileRedirect from '../utils/useProfileRedirect';
 import Error from '../components/Error';
-import physcial from '../assets/images/physcial.jpg';
+import signUpimage from '../assets/images/signupimage.jpg';
 
-const formDefaults = {
-  firstName: '',
-  lastName: '',
-  email: '',
-  password: '',
-  verifyPassword: '',
-  isAdmin: false,
-};
-const Wrapper = styled.div`
+const SignupWrapper = styled.div`
   font-size: 0.8rem;
   width: 90%;
   max-width: 1280px;
@@ -143,12 +134,20 @@ const Wrapper = styled.div`
     }
   }
 `;
-
+const formDefaults = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  verifyPassword: '',
+  isAdmin: false,
+  displayName: '',
+};
 function Signup() {
   const dispatch = useAppDispatch();
   const { authError } = useAuth();
   const [formData, setFormData] = useState(formDefaults);
-  const { firstName, lastName, email, password, verifyPassword, isAdmin } = formData;
+  const { firstName, lastName, email, password, verifyPassword, displayName } = formData;
   useProfileRedirect();
 
   useEffect(() => {
@@ -176,11 +175,11 @@ function Signup() {
   };
 
   return (
-    <Wrapper>
+    <SignupWrapper>
       <section>
-        <h2>Get stronger with us.</h2>
+        <h2>Get Stronger with Effective Exercises.</h2>
         <div className="image">
-          <img src={physcial} alt="Physical fitness" />
+          <img src={signUpimage} alt="Physical fitness" />
         </div>
       </section>
       <main>
@@ -194,7 +193,7 @@ function Signup() {
               type="firstName"
               name="firstName"
               value={firstName}
-              placeholder="Jane"
+              placeholder="First Name"
               required
               onChange={handleInputChange}
             />
@@ -206,7 +205,19 @@ function Signup() {
               type="lastName"
               name="lastName"
               value={lastName}
-              placeholder="Doe"
+              placeholder="Last Name"
+              required
+              onChange={handleInputChange}
+            />
+          </label>
+          <label htmlFor="displayName">
+            Display Name:
+            <input
+              id="DisplayName"
+              type="displayname"
+              name="displayName"
+              value={displayName}
+              placeholder="display Name"
               required
               onChange={handleInputChange}
             />
@@ -218,7 +229,7 @@ function Signup() {
               type="email"
               name="email"
               value={email}
-              placeholder="user@domain.com"
+              placeholder="sample@sample.com"
               required
               onChange={handleInputChange}
             />
@@ -230,7 +241,7 @@ function Signup() {
               type="password"
               name="password"
               value={password}
-              placeholder="S3cr3tPW!"
+              placeholder="*********"
               required
               onChange={handleInputChange}
             />
@@ -242,31 +253,20 @@ function Signup() {
               type="password"
               name="verifyPassword"
               value={verifyPassword}
-              placeholder="S3cr3tPW!"
+              placeholder="**********"
               required
               onChange={handleInputChange}
             />
           </label>
-          <span className="checkbox">
-            <label htmlFor="isAdmin" className="checkbox">
-              <input
-                type="checkbox"
-                id="isAdmin"
-                name="isAdmin"
-                value="true"
-                checked={isAdmin}
-                onChange={handleInputChange}
-              />
-              Set as admin
-            </label>
-          </span>
-          <button type="submit">Submit</button>
+          <button className="register_button" type="submit">
+            <span>REGISTER</span>
+          </button>
         </form>
         <p>
           Already registered? <Link to="/signin">Sign in</Link> instead!
         </p>
       </main>
-    </Wrapper>
+    </SignupWrapper>
   );
 }
 export default Signup;

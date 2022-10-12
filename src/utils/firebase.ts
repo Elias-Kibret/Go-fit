@@ -1,7 +1,10 @@
 import { initializeApp } from 'firebase/app';
 import {
   createUserWithEmailAndPassword,
+  updateProfile,
   getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut as signOutUser,
@@ -18,8 +21,8 @@ import {
   setDoc,
   updateDoc,
 } from 'firebase/firestore';
-import { Exercise } from '@utils/type';
 import { setExercises } from 'store/exercisesSlice';
+import { Exercise } from './type';
 
 import store from '../store';
 import { clearUser, setAuthError, setUser } from '../store/userSlice';
@@ -30,9 +33,12 @@ type User = {
 };
 
 type NewUser = User & {
+  email: string;
+  password: string;
   firstName: string;
   lastName: string;
   isAdmin: boolean;
+  displayName: string;
 };
 
 const firebaseConfig = {
@@ -46,7 +52,23 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+export const signInWithGoogle = () => {
+  signInWithPopup(auth, provider)
+    .then(async (result) => {
+      if (!result) return;
+      const plainUserEntries = Object.entries(result.user).filter(([, value]) => typeof value !== 'object');
+      const plainUser = Object.fromEntries(plainUserEntries);
 
+      localStorage.setItem('token', await result.user.getIdToken());
+      localStorage.setItem('user', JSON.stringify(plainUser));
+
+      store.dispatch(setUser(result.user));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 const dispatchError = (err: any) => {
   return store.dispatch(setAuthError(err));
 };
@@ -57,17 +79,17 @@ const updateUser = async (user: FirebaseUser) => {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      const userDoc = docSnap.data();
-      return store.dispatch(setUser({ ...userDoc, isAuthenticated: true }));
+      return store.dispatch(setUser(user));
     }
   }
 
   dispatchError('User data not found!');
 };
 
-const signUp = async ({ firstName, lastName, email, password, isAdmin = false }: NewUser) => {
+const signUp = async ({ firstName, lastName, email, password, isAdmin = false, displayName = 'sisay' }: NewUser) => {
   try {
     await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(auth.currentUser as any, { displayName: displayName }).catch((err) => console.log(err));
     await setDoc(doc(db, 'users', email), {
       firstName,
       lastName,
@@ -90,16 +112,17 @@ const signIn = async ({ email, password }: User) => {
 const signOut = async () => {
   try {
     await signOutUser(auth);
+    localStorage.removeItem('token');
+    store.dispatch(clearUser());
   } catch ({ message }) {
     dispatchError(message);
   }
 };
 
-onAuthStateChanged(auth, async (user: FirebaseUser | null) => {
+onAuthStateChanged(auth, async (user) => {
   if (user) {
     await updateUser(user);
-  } else {
-    store.dispatch(clearUser());
+    store.dispatch(setUser(user));
   }
 });
 
@@ -109,7 +132,6 @@ export const exerciseStore = () => {
       const exercises = docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       console.log({ docs, exercises });
       return store.dispatch(setExercises(exercises));
-      // return exercises.docs as any as Exercise[];
     });
   };
   const createOrUpdate = ({ id = '', ...exercise }: Exercise) => {
@@ -123,8 +145,6 @@ export const exerciseStore = () => {
 
   const remove = ({ id = '' }: Exercise) => {
     deleteDoc(doc(db, 'exercises', `/${id}`)).then(() => {
-      // const payload = store.getState().exercises.filter((ex) => ex.id !== exercise.id);
-      // store.dispatch(setExercises(payload));
       fetch();
     });
   };
