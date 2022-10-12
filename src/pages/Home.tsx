@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Hero from '../assets/images/bycle.png';
+import Hero from '../assets/images/by-unscreen.gif';
 // import { Link } from 'react-router-dom';
 // import useAuth from '../utils/useAuth';
 const Wrapper = styled.div`
@@ -30,7 +30,7 @@ const Wrapper = styled.div`
   }
 `;
 const ImageWrapper = styled.div`
-  filter: drop-shadow(0 -1mm 10mm rgb(206, 196, 210));
+  filter: drop-shadow(-15mm 15mm 1mm rgb(107, 106, 107));
   width: 500px;
   img {
     width: 100%;
