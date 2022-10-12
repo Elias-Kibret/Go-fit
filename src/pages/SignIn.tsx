@@ -10,9 +10,15 @@ import Error from '../components/Error';
 import physcial_girl from '../assets/images/3P1et-.gif';
 const formDefaults = { email: '', password: '' };
 const Wrapper = styled.div`
+  border: solid 1px white;
+  box-shadow: -5px 16px 87px -32px rgba(0, 0, 0, 0.42);
+  -webkit-box-shadow: -5px 16px 87px -32px rgba(0, 0, 0, 0.42);
+  -moz-box-shadow: -5px 16px 87px -32px rgba(0, 0, 0, 0.42);
+  margin: 10px auto;
+  border-radius: 20px;
   overflow-x: hidden;
   display: flex;
-  width: 70%;
+  width: 85%;
   margin: 50px auto;
   flex-direction: column;
   justify-content: space-between;
@@ -22,6 +28,7 @@ const Wrapper = styled.div`
   @media (min-width: 700px) {
     flex-direction: row;
     width: 70%;
+    padding-left: 40px;
   }
   color: #2a8572;
   main {
@@ -56,6 +63,8 @@ const Wrapper = styled.div`
       }
       button {
         background-color: #2a8572;
+        padding: 10px 0px;
+        width: 250px;
         border: none;
         color: white;
         font-weight: 700;
@@ -72,10 +81,12 @@ const Wrapper = styled.div`
 `;
 const ImageWrapper = styled.div`
   overflow: hidden;
+  background-color: #2a8572;
   img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    filter: drop-shadow(0 0 0.9rem gray);
   }
 `;
 function SignIn() {

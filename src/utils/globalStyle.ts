@@ -11,15 +11,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     margin: 0;
-    button {
-      cursor: pointer;
-      padding: 0.5rem 2rem;
-      width: 150px;
-      background-color:#0a0a23;
-      color: #fff;
-      border:none;
-      border-radius:10px;
-    }
   }
   .newExerciseTitle {
     color: orange;
@@ -28,12 +19,13 @@ const GlobalStyle = createGlobalStyle`
     color: orange;
   }
   .login-with-google-btn {
+    background-color:transparent !important ;
     transition: background-color 0.3s, box-shadow 0.3s;
     padding: 12px 16px 12px 42px;
     border: none;
     border-radius: 3px;
     box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
-    color: #757575;
+    color: #2a8572 !important;
     font-size: 14px;
     font-weight: 500;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -45,6 +37,8 @@ const GlobalStyle = createGlobalStyle`
   }
   .login-with-google-btn:hover {
     box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
+    background-color: #2a8572 !important;
+    color: white !important;
   }
   .login-with-google-btn:active {
     background-color: #eeeeee;
@@ -60,6 +54,7 @@ const GlobalStyle = createGlobalStyle`
     box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
     cursor: not-allowed;
   }
+
 `;
 
 export const StyledNavLogoLink = styled.div`
