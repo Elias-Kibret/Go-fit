@@ -20,7 +20,18 @@ const Wrapper = styled.div`
   -webkit-box-shadow: -5px 16px 87px -32px rgba(0, 0, 0, 0.42);
   -moz-box-shadow: -5px 16px 87px -32px rgba(0, 0, 0, 0.42);
 `;
-
+const HeaderWrapper = styled.div`
+  h2 {
+    color: #2a8572;
+    width: 80%;
+    border-radius: 20px;
+    padding: 10px 5px;
+    text-align: center;
+    font-size: 28px;
+    border-bottom: 1px solid lightgray;
+    background-color: #e7f9ff;
+  }
+`;
 function Exercises() {
   const { exercises } = useSelector((state: RootState) => state);
   const [exercise, setExercise] = useState<Exercise | null>(null);
@@ -49,9 +60,9 @@ function Exercises() {
   const showExerciseDetails = (exercise: Exercise | null) => {
     if (!exercise) {
       return (
-        <Grid container sx={{ 'justify-content': 'center' }}>
-          <Grid item xs={4} sx={{ margin: 'auto', fontSize: 'h3.fontSize' }}>
-            No exercise selected
+        <Grid container sx={{ 'justify-content': 'center', 'background-color': '#e8fffa;' }}>
+          <Grid item xs={10} sx={{ margin: '50px auto', fontSize: '30px' }}>
+            Please Select Exercises
           </Grid>
         </Grid>
       );
@@ -63,7 +74,9 @@ function Exercises() {
     <Wrapper>
       <Box sx={{ display: 'grid', gridTemplateColumns: '2fr 4fr ', gap: '4', overflow: 'hidden' }}>
         <ul>
-          <h2>List of Exercises</h2>
+          <HeaderWrapper>
+            <h2 className="List-Header">List of Exercises</h2>
+          </HeaderWrapper>
           <Button
             variant="text"
             color="primary"

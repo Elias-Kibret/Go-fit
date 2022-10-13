@@ -69,7 +69,12 @@ function ExerciseDetails({ exercise }: { exercise: Exercise }) {
 
   const getOperation = (exercise: Exercise) => (!exercise?.id?.length ? 'New' : 'Update');
 
-  if (!exerciseData) return <Box>No Exercise</Box>;
+  if (!exerciseData)
+    return (
+      <Box>
+        <Box>Please select Exercise </Box>
+      </Box>
+    );
 
   return (
     <Box sx={{ padding: 10, 'background-color': '#e8fffa;', overflow: 'hidden' }}>
