@@ -11,7 +11,7 @@ const HeaderWrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   color: #ff731d;
-  background-color: rgba(207, 255, 141, 0.4) !important;
+  background-color: #e8fffa;
   box-shadow: -1px 9px 59px -21px rgba(0, 0, 0, 0.31);
   -webkit-box-shadow: -1px 9px 59px -21px rgba(0, 0, 0, 0.31);
   -moz-box-shadow: -1px 9px 59px -21px rgba(0, 0, 0, 0.31);
@@ -53,7 +53,7 @@ const NavWrapper = styled.nav`
   }
 `;
 function Header() {
-  const [toggleMenu, setToggleMenu] = React.useState<boolean>(true);
+  const [toggleMenu, setToggleMenu] = React.useState<boolean>(false);
   return (
     <HeaderWrapper>
       <nav>

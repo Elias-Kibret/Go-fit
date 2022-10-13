@@ -52,7 +52,6 @@ function Exercises() {
             <ExerciseSummary onClick={() => setExercise(exercise)} exercise={exercise} />
           </Box>
         ))}
-        ;
       </Stack>
     );
   };
@@ -84,6 +83,7 @@ function Exercises() {
             onClick={() => {
               setExercise({} as any as Exercise);
             }}
+            sx={{ mb: '2rem' }}
           >
             New Exercise
           </Button>
