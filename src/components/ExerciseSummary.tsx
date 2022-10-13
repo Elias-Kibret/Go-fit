@@ -13,6 +13,7 @@ import { Exercise } from '../utils/type';
 const days = ['sun', 'mon', 'tues', 'wed', 'thurs', 'fri', 'sat'];
 const DateWrapper = styled.span`
   font-size: 14px;
+  color: #2a8572;
 `;
 function ExerciseSummary({ exercise, onClick }: { exercise: Exercise; onClick: () => void }) {
   const exerciseDate = new Date(exercise.startTime);
@@ -30,11 +31,14 @@ function ExerciseSummary({ exercise, onClick }: { exercise: Exercise; onClick: (
       >
         <Grid item xs={15} sx={{ display: 'flex', 'align-items': 'center', mb: '8px' }}>
           <MdSportsKabaddi style={{ color: '#1976d2', marginRight: '12px' }} />
-          <span>{exercise.type}</span>
+          <strong style={{ color: '#2a8572' }}>{exercise.type}</strong>
         </Grid>
         <Grid item xs={15} sx={{ display: 'flex', 'align-items': 'center', mb: '8px' }}>
           <BiTimer style={{ color: '#1976d2', marginRight: '12px' }} />
-          {`${exercise?.duration?.value} ${exercise?.duration?.timeUnit}`}
+          <span style={{ color: '#2a8572', fontSize: '16px' }}>
+            {' '}
+            {`${exercise?.duration?.value} ${exercise?.duration?.timeUnit}`}
+          </span>{' '}
         </Grid>
         <Grid item xs={15} sx={{ display: 'flex', 'align-items': 'center', mb: '8px' }}>
           <BsFillCalendarDateFill style={{ color: '#1976d2', marginRight: '12px' }} />
