@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { AddCircleOutlineRounded } from '@mui/icons-material';
+// import { styled } from '@mui/system';
 import { Autocomplete, Box, Button, FormControl, IconButton, Stack, TextField } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import useAuth from 'utils/useAuth';
@@ -71,7 +72,7 @@ function ExerciseDetails({ exercise }: { exercise: Exercise }) {
   if (!exerciseData) return <Box>No Exercise</Box>;
 
   return (
-    <Box sx={{ padding: 10 }}>
+    <Box sx={{ padding: 10, 'background-color': '#e8fffa;', overflow: 'hidden' }}>
       <form className="flex-column padding " onSubmit={makeSubmitHandler}>
         <Stack spacing={5}>
           <h2>
@@ -98,27 +99,30 @@ function ExerciseDetails({ exercise }: { exercise: Exercise }) {
             />
           </FormControl>
 
-          <Box display="flex">
-            <Button variant="text" color="primary" type="submit">
-              {getOperation(exerciseData)}
-            </Button>
+          <Box>
+            <Box component="span" sx={{ display: 'block', 'margin-bottom': '40px' }}>
+              <Button variant="text" color="primary" type="submit">
+                {getOperation(exerciseData)}
+              </Button>
 
-            <Button variant="text" color="primary" onClick={() => timer.startOrPause()}>
-              {timer.stateLabel}
-            </Button>
+              <Button variant="text" color="primary" onClick={() => timer.startOrPause()}>
+                {timer.stateLabel}
+              </Button>
 
-            <Button variant="text" color="primary" onClick={() => timer.reset()}>
-              reset
-            </Button>
-
+              <Button variant="text" color="primary" onClick={() => timer.reset()}>
+                reset
+              </Button>
+            </Box>
             <TextField
               id="elapsedTime"
               label={`Elapsed time ${timer.isRunning ? 'running' : 'stopped'}`}
-              inputProps={{ style: { fontSize: 25 } }}
-              InputLabelProps={{ style: { fontSize: 30 } }}
+              inputProps={{ style: { fontSize: 18 } }}
+              InputLabelProps={{ style: { fontSize: 16 } }}
               value={`${timer.elapsedTime.value} ${timer.elapsedTime.timeUnit}`}
               color="primary"
               disabled
+              size="small"
+              sx={{ mb: '1.4rem' }}
             />
 
             <Autocomplete
@@ -128,7 +132,7 @@ function ExerciseDetails({ exercise }: { exercise: Exercise }) {
               options={setOrReps}
               selectOnFocus
               value={exerciseData.type}
-              sx={{ width: '150px' }}
+              sx={{ width: '150px', mb: '1.4rem' }}
               onChange={(event, newValue) => {
                 if (!Number.isNaN(newValue)) setReps(Number(newValue));
               }}
@@ -141,7 +145,16 @@ function ExerciseDetails({ exercise }: { exercise: Exercise }) {
                 />
               )}
             />
-
+            <TextField
+              id="startTime"
+              // label="Start Time"
+              type="datetime-local"
+              onChange={(event) => {
+                const currentDateTime = new Date(event.target.value);
+                console.table({ utc: currentDateTime.toUTCString(), iso: currentDateTime.toISOString() });
+              }}
+              sx={{ mb: '1.4rem' }}
+            />
             <IconButton
               aria-label="add a rep to workout"
               onClick={() =>
@@ -153,19 +166,11 @@ function ExerciseDetails({ exercise }: { exercise: Exercise }) {
             >
               <AddCircleOutlineRounded />
             </IconButton>
-            <TextField
-              id="startTime"
-              // label="Start Time"
-              type="datetime-local"
-              onChange={(event) => {
-                const currentDateTime = new Date(event.target.value);
-                console.table({ utc: currentDateTime.toUTCString(), iso: currentDateTime.toISOString() });
-              }}
-            />
-
-            <Button variant="outlined" color="primary" onClick={resetExercise}>
-              reset
-            </Button>
+            <Box>
+              <Button variant="outlined" color="primary" onClick={resetExercise}>
+                reset
+              </Button>
+            </Box>
           </Box>
 
           {/* reps */}

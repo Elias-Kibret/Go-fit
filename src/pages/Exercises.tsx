@@ -61,7 +61,7 @@ function Exercises() {
 
   return (
     <Wrapper>
-      <Box sx={{ display: 'grid', gridTemplateColumns: '2fr 4fr ', gap: '4' }}>
+      <Box sx={{ display: 'grid', gridTemplateColumns: '2fr 4fr ', gap: '4', overflow: 'hidden' }}>
         <ul>
           <h2>List of Exercises</h2>
           <Button
